@@ -13,7 +13,12 @@ module.exports = {
       fontFamily: {
         primary: ["Koulen", "cursive"],
         secondary: ["Lato", "sans-serif"],
-        paragraph: ['"Rubik Glitch"', "cursive"],
+        tertiary: ['"Rubik Glitch"', "cursive"],
+      },
+      boxShadow: {
+        initial: "3px 3px 0 #444444",
+        animate: "0 0 0 #444444",
+        tap: "-3px -3px 0 #444444",
       },
     },
   },

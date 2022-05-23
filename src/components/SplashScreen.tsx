@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const SplashScreen: React.FC = () => {
-  const transition = { type: "ease", duration: 2 };
+  const Transition = { type: "ease", duration: 2 };
   return (
     <>
       <motion.div
         initial={{ y: 0 }}
-        animate={{ scale: 0 }}
+        animate={{ opacity: 0, zIndex: -100 }}
         transition={{ type: "ease", duration: 0.5, bounce: 0, delay: 2 }}
-        className="bg-primary h-screen relative overflow-x-hidden"
+        className="bg-primary h-screen absolute left-0 top-0 w-full overflow-x-hidden"
       >
         <motion.svg
           initial={{ x: "-100%", y: "-50%", opacity: 0 }}
           animate={{ x: "-50%", opacity: [1, 0] }}
-          transition={transition}
+          transition={Transition}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 800 400"
           className="md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] absolute left-1/2 top-1/2"
@@ -28,13 +28,13 @@ const SplashScreen: React.FC = () => {
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={transition}
+            transition={Transition}
           />
         </motion.svg>
         <motion.div
           initial={{ x: "-100%", offsetDistance: "0", opacity: 0 }}
           animate={{ x: 0, offsetDistance: "100%", opacity: [1, 0] }}
-          transition={transition}
+          transition={Transition}
           className="absolute top-[150px] w-[64px] h-[64px] lg:w-[128px] lg:h-[128px] -left-[50%] lg:left-[20%] branding-img"
         >
           <Image
