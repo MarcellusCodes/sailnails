@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { SplashScreen, NavBar, LayoutContainer } from "../src/components/index";
+import {
+  SplashScreen,
+  NavBar,
+  LayoutContainer,
+  Header,
+} from "../src/components/index";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +19,8 @@ const Home: NextPage = () => {
         </Head>
         <SplashScreen />
         <NavBar />
-
+        <Header />
+        <NavBar />
         <main></main>
       </LayoutContainer>
     </>

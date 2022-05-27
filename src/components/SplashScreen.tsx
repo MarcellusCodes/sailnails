@@ -7,10 +7,10 @@ const SplashScreen: React.FC = () => {
   return (
     <>
       <motion.div
-        initial={{ y: 0 }}
-        animate={{ opacity: 0, zIndex: -100 }}
+        initial={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: 0, scale: 0 }}
         transition={{ type: "ease", duration: 0.5, bounce: 0, delay: 2 }}
-        className="bg-primary h-screen absolute left-0 top-0 w-full overflow-x-hidden"
+        className="bg-primary h-screen absolute left-0 top-0 w-full overflow-x-hidden z-[2]"
       >
         <motion.svg
           initial={{ x: "-100%", y: "-50%", opacity: 0 }}

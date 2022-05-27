@@ -5,7 +5,7 @@ interface LayoutContainerProps {
 }
 
 const LayoutContainer: React.FC<LayoutContainerProps> = ({ children }) => {
-  return <div className="bg-primary relative">{children}</div>;
+  return <div className="relative bg-primary overflow-hidden">{children}</div>;
 };
 
 export default LayoutContainer;

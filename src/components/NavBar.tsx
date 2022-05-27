@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="px-6 md:px-0 w-full bg-primary py-2">
+    <nav className="px-6 md:px-0 w-full bg-primary py-2 z-[1] relative">
       <Container Styles="flex flex-row items-center justify-between">
         <Link href="/" passHref>
           <a className="cursor-pointer ">
@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
             <Link key={Items.Id} href={Items.Href}>
               <motion.li
                 transition={{ type: "spring" }}
-                className="text-xl shadow-initial hover:shadow-animate active:shadow-tap active:scale-95 duration-300 px-2 py-2 border-2 border-typography font-primary cursor-pointer"
+                className={`text-xl shadow-initial hover:shadow-animate active:shadow-tap active:scale-95 duration-300 px-2 py-2 border-2 border-typography font-primary cursor-pointer ${Items.BackgroundColor}`}
               >
                 {Items.Name}
               </motion.li>

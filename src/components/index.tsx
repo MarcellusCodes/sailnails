@@ -5,3 +5,4 @@ export { default as MenuButton } from "./buttons/MenuButton";
 export { default as LayoutContainer } from "./container/LayoutContainer";
 export { default as Container } from "./container/Container";
 export { default as Section } from "./container/Section";
+export { default as Header } from "./Header";

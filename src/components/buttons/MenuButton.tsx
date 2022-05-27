@@ -44,7 +44,7 @@ const MenuButton = () => {
         initial={"rest"}
         animate={Activate ? "hover" : "rest"}
         whileHover="animate"
-        className="block md:hidden outline-none shadow-initial hover:shadow-animate active:shadow-tap active:scale-95 duration-300 px-2 py-2 border-2 border-typography font-primary"
+        className="block md:hidden outline-none shadow-initial hover:shadow-animate active:shadow-tap active:scale-95 duration-300 px-1 py-1 lg:px-2 lg:py-2 border-2 border-typography font-primary"
       >
         <motion.svg
           width="32"
