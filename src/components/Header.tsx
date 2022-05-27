@@ -1,21 +1,20 @@
 import React from "react";
-import { Container } from "./index";
+import { Container, PrimaryButton, PrimaryTitle } from "./index";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-function easeInOutQuint(x: number): number {
-  return x < 0.5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2;
-}
+import {
+  TransitionMotion,
+  SvgPathMotion,
+  TitleMotion,
+} from "../constants/index";
 
 const ImageContainerMotion = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
-
     transition: {
       staggerChildren: 0.1,
-      type: "spring",
-      bounce: 0.4,
+      ...TransitionMotion,
       delayChildren: 3,
     },
   },
@@ -63,20 +62,17 @@ const Header: React.FC = () => {
     <header className="w-full py-12 h-[1000px] lg:h-[800px] px-8 md:py-20 md:px-0">
       <Container Styles="flex flex-col lg:flex-row items-center lg:items-start justify-between">
         <div className="flex flex-col items-center lg:items-start w-full space-y-[-2rem] lg:w-[50%]">
-          <motion.h1 className="font-primary text-4xl xs:text-5xl md:text-6xl text-typography -rotate-[6deg] relative">
+          <PrimaryTitle
+            Color="text-typography"
+            ClassNames="-rotate-[6deg] relative"
+          >
             <motion.span
-              initial={{
-                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-                y: -10,
-              }}
-              animate={{
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                y: 0,
-              }}
+              initial="initial"
+              animate="animate"
+              variants={TitleMotion}
               transition={{
                 delay: 2.2,
-                type: "spring",
-                bounce: 0.4,
+                ...TransitionMotion,
                 duration: 1,
               }}
               className="font-tertiary text-tertiary inline-block"
@@ -85,18 +81,12 @@ const Header: React.FC = () => {
             </motion.span>{" "}
             your Nails <br />
             <motion.span
-              initial={{
-                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-                y: -10,
-              }}
-              animate={{
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                y: 0,
-              }}
+              initial="initial"
+              animate="animate"
+              variants={TitleMotion}
               transition={{
                 delay: 2.3,
-                type: "spring",
-                bounce: 0.4,
+                ...TransitionMotion,
                 duration: 0.8,
               }}
               className="font-tertiary text-quaternary inline-block"
@@ -105,18 +95,12 @@ const Header: React.FC = () => {
             </motion.span>{" "}
             Style <br />
             <motion.span
-              initial={{
-                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-                y: -10,
-              }}
-              animate={{
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                y: 0,
-              }}
+              initial="initial"
+              animate="animate"
+              variants={TitleMotion}
               transition={{
                 delay: 2.4,
-                type: "spring",
-                bounce: 0.4,
+                ...TransitionMotion,
                 duration: 0.8,
               }}
               className="font-tertiary text-secondary inline-block"
@@ -124,20 +108,19 @@ const Header: React.FC = () => {
               Trendy{" "}
             </motion.span>{" "}
             North Shit
-          </motion.h1>
+          </PrimaryTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 800 800"
             className="-my-12 w-[250px] h-[250px] xs:w-[300px] xs:h-[300px] md:w-[400px] md:h-[400px]"
           >
             <motion.path
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
+              variants={SvgPathMotion}
+              initial="initial"
+              animate="animate"
               transition={{
                 delay: 2.5,
-
-                type: "spring",
-                bounce: 0.4,
+                ...TransitionMotion,
                 duration: 2,
               }}
               d="M250 250q277 50 150 150-106 133 150 150"
@@ -158,26 +141,24 @@ const Header: React.FC = () => {
                 viewBox="0 0 10 10"
                 orient="auto"
                 id="a"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
+                variants={SvgPathMotion}
+                initial="initial"
+                animate="animate"
                 transition={{
                   delay: 2.7,
-
-                  type: "spring",
-                  bounce: 0.4,
+                  ...TransitionMotion,
                   duration: 2,
                 }}
               >
                 <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
                   transition={{
                     delay: 2.7,
-
-                    type: "spring",
-                    bounce: 0.4,
+                    ...TransitionMotion,
                     duration: 2,
                   }}
+                  variants={SvgPathMotion}
+                  initial="initial"
+                  animate="animate"
                   fill="none"
                   strokeWidth={1.667}
                   stroke="#fcf6bd"
@@ -193,19 +174,19 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{
               delay: 2.8,
-
-              type: "spring",
-              bounce: 0.4,
+              ...TransitionMotion,
               duration: 0.8,
             }}
           >
-            <button className="ml-12 lg:ml-24 text-xl xs:text-2xl md:text-3xl outline-none rotate-[6deg] bg-quaternary shadow-initial hover:shadow-animate active:shadow-tap active:scale-95 duration-300 px-2 py-2 border-2 border-typography font-primary cursor-pointer z-[1]">
-              Get Appointment
-            </button>
+            <PrimaryButton
+              Title="Get Appointment"
+              ClassNames="ml-12 lg:ml-24 rotate-[6deg] z-[1]"
+              BackgroundColor="bg-quaternary"
+            />
           </motion.div>
         </div>
         <div className="relative w-full lg:w-[50%]">
-          <div className="w-full absolute -left-24  xl:-left-12 top-12 lg:-top-60 z-[0]">
+          <div className="w-full absolute -left-24 xl:-left-12 top-12 lg:-top-60 z-[0]">
             <motion.div
               variants={ImageContainerMotion}
               initial="initial"

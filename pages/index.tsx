@@ -20,8 +20,9 @@ const Home: NextPage = () => {
         <SplashScreen />
         <NavBar />
         <Header />
-        <NavBar />
-        <main></main>
+        <main>
+          
+        </main>
       </LayoutContainer>
     </>
   );
